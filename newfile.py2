@@ -1,0 +1,18 @@
+stocks = {"AAPL": 180, "TSLA": 250, "MSFT": 330}
+portfolio = {}
+
+print("Enter 3 stocks (name and quantity):")
+
+for i in range(3):
+    stock = input("Stock name: ").upper()
+    quantity = int(input("Quantity: "))
+    portfolio[stock] = quantity
+
+total_value = 0
+print("\n--- Portfolio Report ---")
+for stock, qty in portfolio.items():
+    price = stocks.get(stock, 0)
+    value = price * qty
+    total_value += value
+    print(f"{stock}: {qty} × ₹{price} = ₹{value}")
+print("Total Investment: ₹", total_value)
